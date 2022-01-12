@@ -37,8 +37,8 @@ class HomePage extends StatelessWidget {
         title: const Text('GUESS THE NUMBER'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(40.0),
-        child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+         child: Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20.0),
               color: Colors.lime.shade50,
@@ -52,56 +52,63 @@ class HomePage extends StatelessWidget {
               ]),
           alignment: Alignment.center,
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset(
-                    'assets/images/guess_logo.png',
-                    width: 100,
-                    height: 100,
-                    //fit: BoxFit.fill,
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/images/guess_logo.png',
+                      width: 100,
+                      height: 100,
+                      //fit: BoxFit.fill,
+                    ),
+
                   ),
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      'GUESS',
-                      style: TextStyle(
-                        color: Colors.brown,
-                        fontSize: 70.0,
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    children: const [
+                      Text(
+                        'GUESS',
+                        style: TextStyle(
+                          color: Colors.brown,
+                          fontSize: 70.0,
+                        ),
                       ),
-                    ),
-                    Text(
-                      'THE NUMBER',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 25.0,
+                      Text(
+                        'THE NUMBER',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 25.0,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.deepPurpleAccent)),
-                    hintText: "ทายเลขตั้งแต่ 1 ถึง 100"),
-                textAlign: TextAlign.center,
-                controller: _controller,
+                    ],
+                  ),
+                ],
               ),
             ),
+            SizedBox(
+              height: 16.0,
+            ),
             Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: TextField(
+
+                    textAlign: TextAlign.center,
+                    controller: _controller,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white.withOpacity(0.7),
+                      border: OutlineInputBorder(),
+                      hintText: 'ทายเลขตั้งแต่ 1 ถึง 100',
+                    ),
+                  )),
+
+                  Padding(
               padding: const EdgeInsets.only(bottom: 16.0),
               child: ElevatedButton(
                 child: Text('GUESS'),
